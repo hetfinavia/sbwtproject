@@ -197,7 +197,7 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="https://logodownload.org/wp-content/uploads/2017/10/starbucks-logo-1.png" alt="Starbucks Logo">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png" alt="Starbucks Logo">
             </div>
             <ul>
                 <li><a href="#">Menu</a></li>
@@ -219,28 +219,27 @@
         </div>
     </section>
 
-    <!-- Featured Products -->
-    <section class="featured-products">
-        <h2>Featured Products</h2>
-        <div class="products-container">
-            <div class="product-card">
-                <img src="https://www.starbucks.com/weblx/images/drink_hero_cups_new.jpg" alt="Coffee">
-                <h3>Caramel Macchiato</h3>
-                <p>$4.50</p>
-            </div>
-            <div class="product-card">
-                <img src="https://www.starbucks.com/weblx/images/drink_hero_cups_new.jpg" alt="Coffee">
-                <h3>Cappuccino</h3>
-                <p>$3.95</p>
-            </div>
-            <div class="product-card">
-                <img src="https://www.starbucks.com/weblx/images/drink_hero_cups_new.jpg" alt="Coffee">
-                <h3>Cold Brew</h3>
-                <p>$4.00</p>
-            </div>
-        </div>
-    </section>
-
+        <!-- Featured Products (Replaced with Photo Loop) -->
+        <section class="featured-products">
+            <div id="photo-container">
+                <img src="https://media.istockphoto.com/id/1298770966/photo/starbucks-cafe-interior-empty-cafeteria-behind-glass-wall.jpg?s=612x612&w=0&k=20&c=ZMA7q8ctJFdYBVUHlwuzKvLlaomPlwmA_PxkYZ2swow=" class="photo" alt="Photo 5">
+              </div>
+        </section>
+        
+        <script>
+            const photos = document.querySelectorAll('.photo');
+            let currentIndex = 0;
+    
+            function showNextPhoto() {
+                photos[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % photos.length;
+                photos[currentIndex].classList.add('active');
+            }
+    
+            // Change photo every 3 seconds
+            setInterval(showNextPhoto, 3000);
+        </script>
+    
     <!-- Starbucks Rewards Section -->
     <section class="rewards">
         <h2>Join Starbucks Rewards</h2>
