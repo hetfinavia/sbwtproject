@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Starbucks - Home</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: #006747;
+            padding: 15px 30px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        nav ul li a:hover {
+            color: #f1c232;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to right, #006747, #1b8f5e);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .cta-buttons .btn {
+            background-color: #f1c232;
+            color: #006747;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-buttons .btn:hover {
+            background-color: #d5a800;
+        }
+
+        /* Featured Products */
+        .featured-products {
+            background-color: #fff9e1;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .featured-products h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .products-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 100%;
+            border-radius: 15px;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .product-card h3 {
+            margin-top: 15px;
+            font-size: 1.5rem;
+        }
+
+        .product-card p {
+            color: #006747;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Starbucks Rewards Section */
+        .rewards {
+            background-color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .rewards h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .rewards p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .rewards .btn {
+            background-color: #006747;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .rewards .btn:hover {
+            background-color: #004d39;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer .social-media {
+            margin-top: 10px;
+        }
+
+        footer .social-icon {
+            margin: 0 10px;
+            color: white;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        footer .social-icon:hover {
+            color: #f1c232;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png" alt="Starbucks Logo">
+            </div>
+            <ul>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Find a Store</a></li>
+                <li><a href="#">Rewards</a></li>
+                <li><a href="#">Gift Cards</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Brewed for you, every day!</h1>
+            <p>Your favorite coffee, anytime, anywhere.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn explore-btn">Explore Our Menu</a>
+            </div>
+        </div>
+    </section>
+
+        <!-- Featured Products (Replaced with Photo Loop) -->
+        <section class="featured-products">
+            <div id="photo-container">
+                <img src="https://media.istockphoto.com/id/1298770966/photo/starbucks-cafe-interior-empty-cafeteria-behind-glass-wall.jpg?s=612x612&w=0&k=20&c=ZMA7q8ctJFdYBVUHlwuzKvLlaomPlwmA_PxkYZ2swow=" class="photo" alt="Photo 5">
+              </div>
+        </section>
+        
+        <script>
+            const photos = document.querySelectorAll('.photo');
+            let currentIndex = 0;
+    
+            function showNextPhoto() {
+                photos[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % photos.length;
+                photos[currentIndex].classList.add('active');
+            }
+    
+            // Change photo every 3 seconds
+            setInterval(showNextPhoto, 3000);
+        </script>
+    
+    <!-- Starbucks Rewards Section -->
+    <section class="rewards">
+        <h2>Join Starbucks Rewards</h2>
+        <p>Earn free drinks, special offers, and more!</p>
+        <a href="#" class="btn join-btn">Join Now</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Starbucks Corporation. All rights reserved.</p>
+        <div class="social-media">
+            <a href="#" class="social-icon">Instagram</a>
+            <a href="#" class="social-icon">Facebook</a>
+            <a href="#" class="social-icon">Twitter</a>
+        </div>
+    </footer>
+
+</body>
+</html>
