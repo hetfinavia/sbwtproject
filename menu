@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starbucks Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        header {
+            background-color: #00704a;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .menu-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .menu-section {
+            margin-bottom: 30px;
+        }
+        .menu-section h2 {
+            border-bottom: 2px solid #00704a;
+            padding-bottom: 5px;
+            color: #00704a;
+        }
+        .menu-item {
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .menu-item span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Starbucks Menu</h1>
+    </header>
+    <div class="menu-container">
+        <!-- Coffee Section -->
+        <div class="menu-section">
+            <h2>Coffee</h2>
+            <div class="menu-item">
+                <span>Espresso</span>
+                <span>$3.00</span>
+            </div>
+            <div class="menu-item">
+                <span>Cappuccino</span>
+                <span>$4.00</span>
+            </div>
+            <div class="menu-item">
+                <span>Latte</span>
+                <span>$4.50</span>
+            </div>
+            <div class="menu-item">
+                <span>Cold Brew</span>
+                <span>$4.75</span>
+            </div>
+        </div>
+        <!-- Tea Section -->
+        <div class="menu-section">
+            <h2>Tea</h2>
+            <div class="menu-item">
+                <span>Chai Latte</span>
+                <span>$4.25</span>
+            </div>
+            <div class="menu-item">
+                <span>Green Tea</span>
+                <span>$3.50</span>
+            </div>
+            <div class="menu-item">
+                <span>Black Tea</span>
+                <span>$3.50</span>
+            </div>
+        </div>
+        <!-- Food Section -->
+        <div class="menu-section">
+            <h2>Food</h2>
+            <div class="menu-item">
+                <span>Croissant</span>
+                <span>$3.75</span>
+            </div>
+            <div class="menu-item">
+                <span>Bagel with Cream Cheese</span>
+                <span>$4.00</span>
+            </div>
+            <div class="menu-item">
+                <span>Banana Bread</span>
+                <span>$3.95</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
