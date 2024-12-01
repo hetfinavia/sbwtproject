@@ -3,103 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starbucks Menu</title>
+    <title>Starbucks Menu with Cart</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f7f7f7;
+            background: linear-gradient(to bottom, #ffffff, #ffffff);
+            color: #333;
         }
+
         header {
-            background-color: #00704a;
-            color: white;
             text-align: center;
-            padding: 20px 0;
+            background: #006241;
+            color: #fff;
+            padding: 20px 10px;
         }
-        .menu-container {
-            max-width: 800px;
-            margin: 20px auto;
+
+        header .logo img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+
+        main {
             padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        .menu-section {
+
+        .menu-category {
             margin-bottom: 30px;
         }
-        .menu-section h2 {
-            border-bottom: 2px solid #00704a;
-            padding-bottom: 5px;
-            color: #00704a;
+
+        .menu-category h2 {
+            color: #006241;
+            border-bottom: 2px solid #ffffff;
+            display: inline-block;
+            margin-bottom: 10px;
         }
+
+        .menu-items {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
         .menu-item {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: calc(50% - 10px);
+            padding: 10px;
+            text-align: center;
+        }
+
+        .menu-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .menu-item h3 {
             margin: 10px 0;
+        }
+
+        .menu-item p {
+            font-size: 1.2em;
+            color: #444;
+        }
+
+        .menu-item button {
+            background: #006241;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .menu-item button:hover {
+            background: #004d32;
+        }
+
+        .cart {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f1f1f1;
+            border-radius: 8px;
+        }
+
+        .cart h2 {
+            color: #006241;
+        }
+
+        .cart ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .cart ul li {
+            padding: 5px 0;
+            border-bottom: 1px solid #ddd;
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
-        .menu-item span {
+
+        .cart ul li:last-child {
+            border-bottom: none;
+        }
+
+        .cart ul li button {
+            background: #ff5252;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cart ul li button:hover {
+            background: #d50000;
+        }
+
+        .cart-total {
+            margin-top: 10px;
+            font-size: 1.2em;
             font-weight: bold;
         }
-    </style>
+
+        .place-order-btn {
+            display: block;
+            margin: 20px 0 0;
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+        }
+
+        .place-order-btn:hover {
+            background: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #006241;
+            color: white;
+            position: relative;
+        }
+
+        .menu-items {
+    justify-content: center; 
+}
+</style>
+    <script>
+        let cart = [];
+
+        function addToCart(item, price) {
+            cart.push({ item, price });
+            updateCart();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1); 
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartList = document.getElementById('cart-list');
+            const cartTotal = document.getElementById('cart-total');
+            cartList.innerHTML = '';
+            let total = 0;
+
+            cart.forEach((cartItem, index) => {
+                total += cartItem.price;
+                cartList.innerHTML += `
+                    <li>
+                        ${cartItem.item} - ₹${cartItem.price}
+                        <button onclick="removeFromCart(${index})">Remove</button>
+                    </li>
+                `;
+            });
+
+            cartTotal.innerText = `Total: ₹${total}`;
+        }
+
+        function placeOrder() {
+            if (cart.length === 0) {
+                alert("Your cart is empty. Please add items to place an order.");
+            } else {
+                let items = cart.map(item => `${item.item} (₹${item.price})`).join(', ');
+                let total = cart.reduce((sum, item) => sum + item.price, 0);
+                alert(`Order placed successfully!\n\nItems: ${items}\nTotal: ₹${total}`);
+                cart = []; // Reset the cart
+                updateCart();
+            }
+        }
+    </script>
 </head>
 <body>
+    <center>
     <header>
+        <div class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg" alt="Starbucks Logo">
+        </div>
         <h1>Starbucks Menu</h1>
     </header>
-    <div class="menu-container">
-        <!-- Coffee Section -->
-        <div class="menu-section">
-            <h2>Coffee</h2>
-            <div class="menu-item">
-                <span>Espresso</span>
-                <span>$3.00</span>
+    <main>
+        <section class="menu-category">
+            <h1>Hot Coffees</h1>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="https://media.istockphoto.com/id/1152767411/photo/cup-of-coffee-latte-isolated-on-white-background-with-clipping-path.jpg?s=612x612&w=0&k=20&c=24HBAvkahjo8LKV-6DRUklQzPJUqxjmVlBFtV5BG4tU=" alt="Latte">
+                    <h1>Latte
+                    <p>₹350</p></h1>
+                    <button onclick="addToCart('Latte', 350)">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="https://media.istockphoto.com/id/947762906/photo/hot-coffee-cappuccino-latte-art-isolated-on-white-background-clipping-path-included.jpg?s=612x612&w=0&k=20&c=JaGusOUZ-7wjQaSAufdMpH0IND3WmYW45sAQRwMwoeY=" alt="Cappuccino">
+                    <h1>Cappuccino
+                    <p>₹300</p></h1>
+                    <button onclick="addToCart('Cappuccino', 300)">Add to Cart</button>
+                </div>
             </div>
-            <div class="menu-item">
-                <span>Cappuccino</span>
-                <span>$4.00</span>
+        </section>
+        <section class="menu-category">
+            <h1>Cold Coffees</h1>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="https://cdn.vox-cdn.com/thumbor/Vw5KXCnOj2DzNK2LhOyNH5XIPW4=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/9014605/Sbux_Horchata_Frappuccino_KnockOut.jpg" alt="Frappuccino">
+                    <h1>Frappuccino
+                    <p>₹400</p></h1>
+                    <button onclick="addToCart('Frappuccino', 400)">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="https://myvancity.ca/wp-content/uploads/2019/08/starbucks-fall-feature.jpg.png" alt="Cold Brew">
+                    <h1>Cold Brew
+                    <p>₹350</p></h1>
+                    <button onclick="addToCart('Cold Brew', 350)">Add to Cart</button>
+                </div>
             </div>
-            <div class="menu-item">
-                <span>Latte</span>
-                <span>$4.50</span>
+        </section>
+        <section class="menu-category">
+            <h1>Snacks & Pastries</h1>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="https://www.starbucks.com.cn/images/products/ham-and-cheese-croissant.jpg" alt="Croissant">
+                    <h1>Croissant
+                    <p>₹200</p></h1>
+                    <button onclick="addToCart('Croissant', 200)">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/027/144/397/small_2x/tasty-blueberry-muffin-on-background-png.png" alt="Blueberry Muffin">
+                    <h1>Blueberry Muffin
+                    <p>₹250</p></h1>
+                    <button onclick="addToCart('Blueberry Muffin', 250)">Add to Cart</button>
+                </div>
             </div>
-            <div class="menu-item">
-                <span>Cold Brew</span>
-                <span>$4.75</span>
-            </div>
-        </div>
-        <!-- Tea Section -->
-        <div class="menu-section">
-            <h2>Tea</h2>
-            <div class="menu-item">
-                <span>Chai Latte</span>
-                <span>$4.25</span>
-            </div>
-            <div class="menu-item">
-                <span>Green Tea</span>
-                <span>$3.50</span>
-            </div>
-            <div class="menu-item">
-                <span>Black Tea</span>
-                <span>$3.50</span>
-            </div>
-        </div>
-        <!-- Food Section -->
-        <div class="menu-section">
-            <h2>Food</h2>
-            <div class="menu-item">
-                <span>Croissant</span>
-                <span>$3.75</span>
-            </div>
-            <div class="menu-item">
-                <span>Bagel with Cream Cheese</span>
-                <span>$4.00</span>
-            </div>
-            <div class="menu-item">
-                <span>Banana Bread</span>
-                <span>$3.95</span>
-            </div>
-        </div>
-    </div>
+        </section>
+        <section class="cart">
+            <h1>Your Cart</h1>
+            <ul id="cart-list">
+                <Cart items>
+            </ul>
+            <p class="cart-total" id="cart-total">Total: ₹0</p>
+            <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Starbucks Corporation. All Rights Reserved.</p>
+    </footer>
+</center>
 </body>
 </html>
