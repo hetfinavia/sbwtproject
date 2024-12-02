@@ -3,182 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Starbucks - Home</title>
+    <title>Starbucks India Dashboard</title>
     <style>
+        /* General reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
         }
 
         body {
-            background-color: #006747;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             color: #333;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        header {
-            background-color: #006747;
-            padding: 15px 30px;
-        }
-
+        /* Navigation Bar */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 15px 50px;
+            background-color: #006241;
         }
 
-        nav .logo img {
-            height: 50px;
+        nav img {
+            width: 150px;
         }
 
         nav ul {
-            list-style: none;
             display: flex;
-            gap: 20px;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+            font-size: 16px;
         }
 
         nav ul li a {
-            color: white;
-            font-size: 16px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
         }
 
         nav ul li a:hover {
-            color: #f1c232;
+            text-decoration: underline;
         }
 
+        /* Hero Section */
         .hero {
-            background: linear-gradient(to right, #006747, #006747);
-            color: white;
+            height: 600px;
+            background-image: url('https://source.unsplash.com/1920x1080/?coffee,starbucks');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 80px 20px;
+            color: white;
+            position: relative;
+        }
+
+        /* White Rectangle Background with Rounded Corners */
+        .hero-text-container {
+            background-color: white;
+            padding: 40px 60px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            max-width: 500px;
+            text-align: center;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3em;
             margin-bottom: 10px;
-        }
-
-        .hero h2 {
-            font-size: 2rem;
-            margin-bottom: 10px;
+            color: #006241;  /* Starbucks Green */
         }
 
         .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 30px;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #333;
         }
 
-        .cta-buttons {
+        .btn {
+            padding: 10px 20px;
+            background-color: #006241;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #00754a;
+        }
+
+        /* Card Section */
+        .card-section {
             display: flex;
-            gap: 20px;
             justify-content: center;
+            gap: 20px;
+            padding: 40px 20px;
         }
 
-        .cta-buttons .btn {
-            background-color: #f1c232;
-            color: #006747;
-            padding: 15px 30px;
-            border-radius: 30px;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-
-        .cta-buttons .btn:hover {
-            background-color: #d5a800;
-        }
-
-        .rewards {
-            background-color: #fff;
-            padding: 50px 20px;
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
             text-align: center;
         }
 
-        .rewards h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+        /* Adjusting image to fit the card area */
+        .card img {
+            width: 100%;
+            height: 200px; /* Adjusted height */
+            object-fit: cover; /* Ensures the image covers the area properly */
+            border-radius: 10px;
         }
 
-        .rewards p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+        .card h3 {
+            margin-top: 15px;
+            font-size: 1.5em;
         }
 
-        .rewards .btn {
-            background-color: #006747;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 30px;
-            font-size: 16px;
-            transition: background-color 0.3s;
+        .card p {
+            color: #777;
+            margin-top: 10px;
         }
 
-        .rewards .btn:hover {
-            background-color: #004d39;
-        }
-
+        /* Footer Section */
         footer {
-            background-color: #006747;
+            background-color: #006241;
             color: white;
             padding: 20px;
             text-align: center;
         }
 
-        footer .social-media {
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .social-media {
             margin-top: 10px;
         }
 
-        footer .social-icon {
+        .social-icon {
             margin: 0 10px;
             color: white;
             font-size: 18px;
+            text-transform: uppercase;
         }
 
-        footer .social-icon:hover {
+        .social-icon:hover {
             color: #f1c232;
         }
     </style>
-    
 </head>
 <body>
-    <center>
-    <header>
-        <nav>
-            <div class="logo">
-               <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png" alt="Starbucks Logo">
-            </div>
-            <ul>
-                <li><h1><a href="menu.html">Menu</a></h1></li>
-                <li><h1><a href="location.html">Find a Store</a></h1></li>
-            </ul>
-        </nav>
-    </header>
 
+    <!-- Navigation Bar -->
+    <nav>
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png" alt="Starbucks Logo">
+        <ul>
+            <!-- Updated Menu link -->
+            <li><a href="menu.html">Menu</a></li> <!-- Menu page redirect -->
+            <li><a href="file:///C:/Users/HP/OneDrive/Desktop/starbucks/menu.html">Find a Store</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Starbucks Membership!</h1>
-            <h2>Brewed for you, every day!</h2>
-            <p>Your favorite coffee, anytime, anywhere.</p>
-            <div class="cta-buttons">
-                <a href="createacpage.html" class="btn order-btn">Join Now</a>
-            </div>
+        <div class="hero-text-container">
+            <h1>Welcome to Starbucks India</h1>
+            <p>Get into the holiday spirit with our seasonal offerings</p>
         </div>
     </section>
 
-    <section>
-        <div id="photo-container">
-            <p>
-                <img src="https://www.gcrmag.com/wp-content/uploads/2024/08/Starbucks.jpg" alt="Starbucks Interior"  width="700" height="450">
-            </p>
+    <!-- Card Section (Offers or Menu) -->
+    <section class="card-section">
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_1h0eRC6FQhqD_9agRO2pwyRqdOqTTi26lg&s" alt="Fresh Coffee">
+            <h3>Fresh Coffee</h3>
+            <p>Enjoy the finest coffee blends at Starbucks.</p>
+        </div>
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOBjT81XKixCZl1l0P4kY7h08m8S8UmEGVIA&s" alt="Pastries">
+            <h3>Delicious Pastries</h3>
+            <p>Pair your coffee with freshly baked pastries.</p>    
+        </div>
+        <div class="card">
+            <img src="https://media.istockphoto.com/id/471598947/photo/starbucks-beverages.jpg?s=612x612&w=0&k=20&c=i1R3-omDM-CLdgVlexoV9TEJTPjOyCxk4yGQqUgsIvM=" alt="Custom Drinks">
+            <h3>Customize Your Drink</h3>
+            <p>Personalize your drink just the way you like it.</p>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Starbucks Corporation. All rights reserved.</p>
         <div class="social-media">
@@ -187,7 +218,6 @@
             <a href="https://twitter.com/starbucks?lang=en" class="social-icon">Twitter</a>
         </div>
     </footer>
-    </center>
+
 </body>
 </html>
-
