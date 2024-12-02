@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Starbucks - Home</title>
     <style>
-        /* Global Styles */
-        * {
+                 {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -24,7 +23,6 @@
             color: inherit;
         }
 
-        /* Navigation Bar */
         header {
             background-color: #006747;
             padding: 15px 30px;
@@ -56,7 +54,6 @@
             color: #f1c232;
         }
 
-        /* Hero Section */
         .hero {
             background: linear-gradient(to right, #006747, #1b8f5e);
             color: white;
@@ -93,7 +90,6 @@
             background-color: #d5a800;
         }
 
-        /* Starbucks Rewards Section */
         .rewards {
             background-color: #fff;
             padding: 50px 20px;
@@ -111,7 +107,7 @@
         }
 
         .rewards .btn {
-            background-color: #fffff;
+            background-color: #006747;
             color: white;
             padding: 15px 30px;
             border-radius: 30px;
@@ -119,7 +115,10 @@
             transition: background-color 0.3s;
         }
 
-        /* Footer */
+        .rewards .btn:hover {
+            background-color: #004d39;
+        }
+
         footer {
             background-color: #333;
             color: white;
@@ -144,57 +143,46 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
+    <center>
     <header>
         <nav>
             <div class="logo">
-                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png" alt="Starbucks Logo">
+               <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png" alt="Starbucks Logo">
             </div>
             <ul>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="location.html">Find a Store</a></li>
-                <li><a href="#">Rewards</a></li>
-                <li><a href="#">Gift Cards</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="top">
-            <h1>Welcome to starbucks!</h1>
-            <h1>Brewed for you, every day!</h1>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Starbucks Membership!</h1>
+            <h2>Brewed for you, every day!</h2>
             <p>Your favorite coffee, anytime, anywhere.</p>
-        <h2>Join Starbucks Membership</h2>
-        <p>Earn free drinks, special offers, and more!</p>
-        <a href="createacpage.html" class="btn join-btn">Join Now</a>
+            <div class="cta-buttons">
+                <a href="createacpage.html" class="btn order-btn">Join Now</a>
+            </div>
         </div>
-</section>
-        <section class="featured-products">
-            <div id="photo-container">
-                <img src="https://media.istockphoto.com/id/1298770966/photo/starbucks-cafe-interior-empty-cafeteria-behind-glass-wall.jpg?s=612x612&w=0&k=20&c=ZMA7q8ctJFdYBVUHlwuzKvLlaomPlwmA_PxkYZ2swow=" class="photo" alt="Photo 5">
-              </div>
-        </section>
-        
-        <script>
-            const photos = document.querySelectorAll('.photo');
-            let currentIndex = 0;
-    
-            function showNextPhoto() {
-                photos[currentIndex].classList.remove('active');
-                currentIndex = (currentIndex + 1) % photos.length;
-                photos[currentIndex].classList.add('active');
-            }
-            setInterval(showNextPhoto, 3000);
-        </script>
+    </section>
 
-    <!-- Footer -->
+    <section>
+        <div id="photo-container">
+            <p>
+            <img src="https://media.istockphoto.com/id/1298770966/photo/starbucks-cafe-interior-empty-cafeteria-behind-glass-wall.jpg?s=612x612&w=0&k=20&c=ZMA7q8ctJFdYBVUHlwuzKvLlaomPlwmA_PxkYZ2swow=">
+        </p>
+        </div>
+    </section>
+
     <footer>
         <p>&copy; 2024 Starbucks Corporation. All rights reserved.</p>
         <div class="social-media">
             <a href="https://www.instagram.com/starbucksindia/?hl=en" class="social-icon">Instagram</a>
-            <a href="https://www.facebook.com/Starbucks/" class="social-icon">Facebook</a>
-            <a href="https://twitter.com/starbucks?lang=en" class="social-icon">Twitter</a>
+            <a href="https://www.facebook.com/Starbucks/" class="social-icon" class="social-icon">Facebook</a>
+            <a href="https://twitter.com/starbucks?lang=en" class="social-icon" class="social-icon">Twitter</a>
         </div>
     </footer>
-
+</center>
 </body>
 </html>
